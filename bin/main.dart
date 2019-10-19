@@ -7,7 +7,25 @@
 // multiplicative(39) ➞ 3
 /// Because 3 * 9 = 27, 2 * 7 = 14, 1 * 4 = 4 and 4 has only one digit.
 int multiplicative(int number) {
-  return null;
+  int mul = 1;
+  int operations=0;
+  int n=0;
+
+  //List numList=num.split('');
+  // print(numList);
+  while (number > 9) {
+    String num = number.toString();
+   print(num);
+    for (int i = 0; i < num.length; i++) {
+      mul = mul * int.parse(num[i]);
+      print(mul);
+      operations++;
+    }
+    n++;
+    number=mul;
+    mul=1;
+  }
+  return operations-n;
 }
 
 // Challenge 3
@@ -23,7 +41,22 @@ int multiplicative(int number) {
 
 //  wave(" ") ➞ []
 List<String> wave(String word) {
-  return null;
+  int length=word.length;
+  List<String> waveList=[];
+  for(int i=0;i<length;i++){
+    if(word[i] !=' ')
+      {
+        String newWord=word.substring(0,i)+word[i].toUpperCase()+word.substring(i+1,length);
+        waveList.add(newWord);
+      }
+}
+return waveList;
 }
 
-main() {}
+main() {
+  print(multiplicative(39));
+  print(multiplicative(391));
+  print(multiplicative(4));
+ print(wave("eabit"));
+ print(wave("just do it"));
+}
